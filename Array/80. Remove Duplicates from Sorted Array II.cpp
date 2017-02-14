@@ -1,3 +1,4 @@
+// 可以扩展到k个重复数字
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
