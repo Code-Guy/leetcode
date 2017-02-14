@@ -57,6 +57,7 @@ int binarySearchUpperBound(vector<int> &nums, int upperBound)
 	return begin;
 }
 
+// Solution 1 binary search with lower bound and value
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
@@ -111,5 +112,35 @@ private:
 		    }
 	    }
 	    return -1;
+    }
+};
+
+// Solution 2 just treat the matrix as the sorted array
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size();
+        if (m == 0) return false;
+        int n = matrix[0].size();
+        if (n == 0) return false;
+        
+        int begin = 0, end = m * n - 1;
+	    while (begin <= end)
+	    {
+		    int mid = (begin + end) / 2;
+		    if (matrix[mid / n][mid % n] < target)
+		    {
+			    begin = mid + 1;
+		    }
+		    else if (matrix[mid / n][mid % n] > target)
+		    {
+			    end = mid - 1;
+		    }
+		    else
+		    {
+			    return true;
+		    }
+	    }
+	    return false;
     }
 };
