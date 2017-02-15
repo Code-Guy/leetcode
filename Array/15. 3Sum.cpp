@@ -3,11 +3,13 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> triplets;
+        int n = nums.size();
+        if (n < 3) return triplets;
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size();) {
+        for (int i = 0; i < n - 2;) {
             int num = nums[i];
             int target = -num;
-            int begin = i + 1, end = nums.size() - 1;
+            int begin = i + 1, end = n - 1;
             while (begin < end) {
                 int lhs = nums[begin], rhs = nums[end];
                 int sum = lhs + rhs;
