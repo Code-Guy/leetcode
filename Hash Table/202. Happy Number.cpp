@@ -23,7 +23,7 @@ private:
         return ret;
     }
 };
-// floyd cycle detection algorithm
+// Solution 2 floyd cycle detection algorithm
 class Solution {
 public:
     bool isHappy(int n) {
