@@ -8,11 +8,18 @@ public:
         ListNode dummy(INT_MIN);
         dummy.next = head;
         ListNode *node = head;
-        while (node->next) {
+        /* while (node->next) {
             ListNode *tmp = dummy.next;
             dummy.next = node->next;
             node->next = node->next->next;
             dummy.next->next = tmp;
+        } */
+        
+        while (node->next) {
+            ListNode *tmp = node->next;
+            node->next = tmp->next;
+            tmp->next = pre->next;
+            pre->next = tmp;
         }
         
         return dummy.next;
